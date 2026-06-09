@@ -5,3 +5,6 @@ class Figurinha:
         self.pais = pais
         self.posicao = posicao
         self.raridade = raridade
+
+    def __str__(self):
+        return "[" + str(self.id) + "] " + self.nome + " - " + self.pais + " - " + self.posicao + " - " + self.raridade
