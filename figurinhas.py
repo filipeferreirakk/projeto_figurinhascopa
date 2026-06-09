@@ -111,3 +111,29 @@ class Album:
             anterior = atual
             atual = atual.proximo
         return False
+
+    def listar(self):
+        if self._cabeca is None:
+            print("Album vazio.")
+            return
+        atual = self._cabeca
+        while atual is not None:
+            print(atual.figurinha)
+            atual = atual.proximo
+
+    def porcentagem(self):
+        if self._total == 0:
+            return 0
+        return (self._tamanho / self._total) * 100
+    
+    def mostrar_repetidas(self):
+        if self._repetidas_cabeca is None:
+            print("Nenhuma figurinha repetida.")
+            return
+        atual = self._repetidas_cabeca
+        while atual is not None:
+            print(atual.figurinha)
+            atual = atual.proximo
+
+    def contar_repetidas(self):
+        return self._repetidas_tamanho
