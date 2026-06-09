@@ -20,3 +20,13 @@ class NodoFila:
     def __init__(self, figurinha):
         self.figurinha = figurinha
         self.proximo = None
+
+
+class Fila:
+    def __init__(self):
+        self._inicio = None
+        self._fim = None
+        self._tamanho = 0
+
+    def esta_vazia(self):
+        return self._inicio is None
