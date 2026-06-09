@@ -50,3 +50,8 @@ class Fila:
             self._fim = None
         self._tamanho = self._tamanho - 1
         return removido.figurinha
+
+    def peek(self):
+        if self.esta_vazia():
+            return None
+        return self._inicio.figurinha
