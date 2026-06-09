@@ -160,3 +160,24 @@ class Album:
             anterior = atual
             atual = atual.proximo
         return None
+    
+    def buscar_por_jogador(self, nome):
+        resultado = Fila()
+        atual = self._cabeca
+        while atual is not None:
+            if atual.figurinha.nome.lower() == nome.lower():
+                resultado.enqueue(atual.figurinha)
+            atual = atual.proximo
+        return resultado
+
+    def buscar_por_selecao(self, pais):
+        resultado = Fila()
+        atual = self._cabeca
+        while atual is not None:
+            if atual.figurinha.pais.lower() == pais.lower():
+                resultado.enqueue(atual.figurinha)
+            atual = atual.proximo
+        return resultado
+
+    def tamanho(self):
+        return self._tamanho
