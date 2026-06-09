@@ -234,3 +234,19 @@ class Historico:
 
     def quantidade(self):
         return self._fila.tamanho()
+    
+    
+SELECOES_VALIDAS = (
+    "Brasil", "Argentina", "Franca", "Inglaterra", "Espanha",
+    "Portugal", "Alemanha", "Italia", "Holanda", "Croacia",
+    "Uruguai", "Belgica", "Mexico", "Estados Unidos", "Canada",
+    "Japao", "Coreia do Sul", "Marrocos", "Senegal", "Australia"
+)
+
+
+def selecao_valida(pais):
+    p = pais.strip().lower()
+    for selecao in SELECOES_VALIDAS:
+        if selecao.lower() == p:
+            return True
+    return False
