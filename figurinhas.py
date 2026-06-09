@@ -181,3 +181,37 @@ class Album:
 
     def tamanho(self):
         return self._tamanho
+    
+    def salvar(self, arquivo):
+        saida = open(arquivo, "w", encoding="utf-8")
+        atual = self._cabeca
+        while atual is not None:
+            f = atual.figurinha
+            saida.write("A;" + str(f.id) + ";" + f.nome + ";" + f.pais + ";" + f.posicao + ";" + f.raridade + "\n")
+            atual = atual.proximo
+        atual = self._repetidas_cabeca
+        while atual is not None:
+            f = atual.figurinha
+            saida.write("R;" + str(f.id) + ";" + f.nome + ";" + f.pais + ";" + f.posicao + ";" + f.raridade + "\n")
+            atual = atual.proximo
+        saida.close()
+
+    def carregar(self, arquivo):
+        try:
+            entrada = open(arquivo, "r", encoding="utf-8")
+        except FileNotFoundError:
+            return False
+        linha = entrada.readline()
+        while linha != "":
+            linha = linha.strip()
+            if linha != "":
+                partes = linha.split(";")
+                if len(partes) == 6:
+                    figurinha = Figurinha(int(partes[1]), partes[2], partes[3], partes[4], partes[5])
+                    if partes[0] == "A":
+                        self.adicionar(figurinha)
+                    else:
+                        self._adicionar_repetida(figurinha)
+            linha = entrada.readline()
+        entrada.close()
+        return True
