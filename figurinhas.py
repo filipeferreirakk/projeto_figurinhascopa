@@ -30,3 +30,13 @@ class Fila:
 
     def esta_vazia(self):
         return self._inicio is None
+
+    def enqueue(self, figurinha):
+        novo = NodoFila(figurinha)
+        if self._fim is None:
+            self._inicio = novo
+            self._fim = novo
+        else:
+            self._fim.proximo = novo
+            self._fim = novo
+        self._tamanho = self._tamanho + 1
