@@ -63,3 +63,12 @@ class Fila:
 
     def tamanho(self):
         return self._tamanho
+
+
+class Album:
+    def __init__(self, total=20):
+        self._cabeca = None
+        self._tamanho = 0
+        self._total = total
+        self._repetidas_cabeca = None
+        self._repetidas_tamanho = 0
