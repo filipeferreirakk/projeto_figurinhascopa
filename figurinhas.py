@@ -137,3 +137,26 @@ class Album:
 
     def contar_repetidas(self):
         return self._repetidas_tamanho
+    
+    def tem_repetida(self, id):
+        atual = self._repetidas_cabeca
+        while atual is not None:
+            if atual.figurinha.id == id:
+                return True
+            atual = atual.proximo
+        return False
+
+    def remover_repetida(self, id):
+        atual = self._repetidas_cabeca
+        anterior = None
+        while atual is not None:
+            if atual.figurinha.id == id:
+                if anterior is None:
+                    self._repetidas_cabeca = atual.proximo
+                else:
+                    anterior.proximo = atual.proximo
+                self._repetidas_tamanho = self._repetidas_tamanho - 1
+                return atual.figurinha
+            anterior = atual
+            atual = atual.proximo
+        return None
