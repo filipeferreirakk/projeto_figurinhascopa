@@ -96,3 +96,18 @@ class Album:
         novo.proximo = self._repetidas_cabeca
         self._repetidas_cabeca = novo
         self._repetidas_tamanho = self._repetidas_tamanho + 1
+
+    def remover(self, id):
+        atual = self._cabeca
+        anterior = None
+        while atual is not None:
+            if atual.figurinha.id == id:
+                if anterior is None:
+                    self._cabeca = atual.proximo
+                else:
+                    anterior.proximo = atual.proximo
+                self._tamanho = self._tamanho - 1
+                return True
+            anterior = atual
+            atual = atual.proximo
+        return False
