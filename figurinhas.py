@@ -40,3 +40,13 @@ class Fila:
             self._fim.proximo = novo
             self._fim = novo
         self._tamanho = self._tamanho + 1
+
+    def dequeue(self):
+        if self.esta_vazia():
+            return None
+        removido = self._inicio
+        self._inicio = self._inicio.proximo
+        if self._inicio is None:
+            self._fim = None
+        self._tamanho = self._tamanho - 1
+        return removido.figurinha
