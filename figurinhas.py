@@ -55,3 +55,11 @@ class Fila:
         if self.esta_vazia():
             return None
         return self._inicio.figurinha
+
+    def limpar(self):
+        self._inicio = None
+        self._fim = None
+        self._tamanho = 0
+
+    def tamanho(self):
+        return self._tamanho
