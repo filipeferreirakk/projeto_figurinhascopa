@@ -215,3 +215,22 @@ class Album:
             linha = entrada.readline()
         entrada.close()
         return True
+    
+class Historico:
+    def __init__(self):
+        self._fila = Fila()
+
+    def registrar(self, figurinha):
+        self._fila.enqueue(figurinha)
+
+    def listar(self):
+        if self._fila.esta_vazia():
+            print("Nenhuma troca registrada.")
+            return
+        atual = self._fila._inicio
+        while atual is not None:
+            print(atual.figurinha)
+            atual = atual.proximo
+
+    def quantidade(self):
+        return self._fila.tamanho()
