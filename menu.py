@@ -87,6 +87,8 @@ def menu():
         print("3 - Consultar figurinha")
         print("4 - Ver album completo")
         print("5 - Ver porcentagem concluida")
+        print("6 - Ver figurinhas repetidas")
+        print("7 - Contar repetidas")
         print("0 - Sair")
         opcao = ler_texto("Escolha uma opcao: ")
 
@@ -100,6 +102,10 @@ def menu():
             album_voce.listar()
         elif opcao == "5":
             print("Album " + str(round(album_voce.porcentagem(), 2)) + "% concluido.")
+        elif opcao == "6":
+            album_voce.mostrar_repetidas()
+        elif opcao == "7":
+            print("Voce tem " + str(album_voce.contar_repetidas()) + " repetidas.")
         elif opcao == "0":
             print("Ate logo!")
             break
