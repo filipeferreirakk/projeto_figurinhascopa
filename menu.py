@@ -93,6 +93,24 @@ def imprimir_resultado(resultado):
     while not resultado.esta_vazia():
         print(resultado.dequeue())
 
+def efetuar_troca(album_voce, album_amigo, historico):
+    id_quero = ler_inteiro("Numero da figurinha que voce quer do amigo: ")
+    id_ofereco = ler_inteiro("Numero da figurinha que voce oferece: ")
+    print("Proposta: receber " + str(id_quero) + " e dar " + str(id_ofereco))
+    if not album_amigo.tem_repetida(id_quero):
+        print("O amigo nao tem essa figurinha repetida.")
+        return
+    if not album_voce.tem_repetida(id_ofereco):
+        print("Voce nao tem essa figurinha repetida.")
+        return
+    recebida = album_amigo.remover_repetida(id_quero)
+    enviada = album_voce.remover_repetida(id_ofereco)
+    album_voce.adicionar(recebida)
+    album_amigo.adicionar(enviada)
+    historico.registrar(recebida)
+    historico.registrar(enviada)
+    print("Troca realizada com sucesso!")
+
 def menu():
     album_voce = Album(TOTAL_ALBUM)
 
