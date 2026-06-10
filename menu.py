@@ -135,6 +135,8 @@ def menu():
         print("9 - Buscar por selecao")
         print("10 - Efetuar troca com amigo")
         print("11 - Ver historico de trocas")
+        print("12 - Salvar dados")
+        print("13 - Carregar dados")
         print("0 - Sair")
         opcao = ler_texto("Escolha uma opcao: ")
 
@@ -160,6 +162,14 @@ def menu():
             efetuar_troca(album_voce, album_amigo, historico)
         elif opcao == "11":
             historico.listar()
+        elif opcao == "12":
+            album_voce.salvar(ARQUIVO)
+            print("Dados salvos em " + ARQUIVO)
+        elif opcao == "13":
+            if album_voce.carregar(ARQUIVO):
+                print("Dados carregados de " + ARQUIVO)
+            else:
+                print("Arquivo nao encontrado.")
         elif opcao == "0":
             print("Ate logo!")
             break
