@@ -134,6 +134,7 @@ def menu():
         print("8 - Buscar por jogador")
         print("9 - Buscar por selecao")
         print("10 - Efetuar troca com amigo")
+        print("11 - Ver historico de trocas")
         print("0 - Sair")
         opcao = ler_texto("Escolha uma opcao: ")
 
@@ -157,6 +158,8 @@ def menu():
             buscar_por_selecao(album_voce)
         elif opcao == "10":
             efetuar_troca(album_voce, album_amigo, historico)
+        elif opcao == "11":
+            historico.listar()
         elif opcao == "0":
             print("Ate logo!")
             break
