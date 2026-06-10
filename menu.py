@@ -75,3 +75,36 @@ def consultar_figurinha(album):
         print("Figurinha nao encontrada.")
     else:
         print(figurinha)
+
+def menu():
+    album_voce = Album(TOTAL_ALBUM)
+
+    while True:
+        print("")
+        print("===== ALBUM DA COPA =====")
+        print("1 - Inserir figurinha")
+        print("2 - Remover figurinha")
+        print("3 - Consultar figurinha")
+        print("4 - Ver album completo")
+        print("5 - Ver porcentagem concluida")
+        print("0 - Sair")
+        opcao = ler_texto("Escolha uma opcao: ")
+
+        if opcao == "1":
+            inserir_figurinha(album_voce)
+        elif opcao == "2":
+            remover_figurinha(album_voce)
+        elif opcao == "3":
+            consultar_figurinha(album_voce)
+        elif opcao == "4":
+            album_voce.listar()
+        elif opcao == "5":
+            print("Album " + str(round(album_voce.porcentagem(), 2)) + "% concluido.")
+        elif opcao == "0":
+            print("Ate logo!")
+            break
+        else:
+            print("Opcao invalida.")
+
+
+menu()
