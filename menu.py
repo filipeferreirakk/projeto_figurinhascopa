@@ -113,6 +113,13 @@ def efetuar_troca(album_voce, album_amigo, historico):
 
 def menu():
     album_voce = Album(TOTAL_ALBUM)
+    album_amigo = Album(TOTAL_ALBUM)
+    historico = Historico()
+
+    album_amigo.adicionar(Figurinha(5, "Vinicius", "Brasil", "Atacante", "rara"))
+    album_amigo.adicionar(Figurinha(5, "Vinicius", "Brasil", "Atacante", "rara"))
+    album_amigo.adicionar(Figurinha(8, "Mbappe", "Franca", "Atacante", "lendaria"))
+    album_amigo.adicionar(Figurinha(8, "Mbappe", "Franca", "Atacante", "lendaria"))
 
     while True:
         print("")
@@ -126,6 +133,7 @@ def menu():
         print("7 - Contar repetidas")
         print("8 - Buscar por jogador")
         print("9 - Buscar por selecao")
+        print("10 - Efetuar troca com amigo")
         print("0 - Sair")
         opcao = ler_texto("Escolha uma opcao: ")
 
@@ -147,6 +155,8 @@ def menu():
             buscar_por_jogador(album_voce)
         elif opcao == "9":
             buscar_por_selecao(album_voce)
+        elif opcao == "10":
+            efetuar_troca(album_voce, album_amigo, historico)
         elif opcao == "0":
             print("Ate logo!")
             break
