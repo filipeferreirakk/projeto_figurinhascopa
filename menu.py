@@ -76,6 +76,23 @@ def consultar_figurinha(album):
     else:
         print(figurinha)
 
+def buscar_por_jogador(album):
+    nome = ler_texto("Nome do jogador: ")
+    imprimir_resultado(album.buscar_por_jogador(nome))
+
+
+def buscar_por_selecao(album):
+    pais = ler_selecao("Selecao: ")
+    imprimir_resultado(album.buscar_por_selecao(pais))
+
+
+def imprimir_resultado(resultado):
+    if resultado.esta_vazia():
+        print("Nenhuma figurinha encontrada.")
+        return
+    while not resultado.esta_vazia():
+        print(resultado.dequeue())
+
 def menu():
     album_voce = Album(TOTAL_ALBUM)
 
