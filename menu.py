@@ -59,3 +59,19 @@ def inserir_figurinha(album):
         print("Figurinha adicionada ao album.")
     else:
         print("Voce ja tinha essa figurinha. Foi para as repetidas.")
+
+def remover_figurinha(album):
+    id = ler_inteiro("Numero da figurinha para remover: ")
+    if album.remover(id):
+        print("Figurinha removida.")
+    else:
+        print("Figurinha nao encontrada.")
+
+
+def consultar_figurinha(album):
+    id = ler_inteiro("Numero da figurinha: ")
+    figurinha = album.buscar(id)
+    if figurinha is None:
+        print("Figurinha nao encontrada.")
+    else:
+        print(figurinha)
