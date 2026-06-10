@@ -43,3 +43,19 @@ def ler_selecao(mensagem):
         print("Selecao invalida. Selecoes validas:")
         for selecao in SELECOES_VALIDAS:
             print(" - " + selecao)
+
+
+def inserir_figurinha(album):
+    id = ler_inteiro("Numero da figurinha: ")
+    if id < 1 or id > TOTAL_ALBUM:
+        print("Numero fora do album (1 a " + str(TOTAL_ALBUM) + ").")
+        return
+    nome = ler_texto("Nome do jogador: ")
+    pais = ler_selecao("Selecao: ")
+    posicao = ler_texto("Posicao: ")
+    raridade = ler_texto("Raridade (comum/rara/lendaria): ")
+    figurinha = Figurinha(id, nome, pais, posicao, raridade)
+    if album.adicionar(figurinha):
+        print("Figurinha adicionada ao album.")
+    else:
+        print("Voce ja tinha essa figurinha. Foi para as repetidas.")
